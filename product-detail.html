@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,15 +9,17 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
-  
+
   <header></header>
 
   <main class="section" style="padding-top: 150px; min-height: 80vh;">
     <div class="container" id="detail-page-container">
-      
+
       <!-- Back Link -->
-      <a href="javascript:history.back();" style="display: inline-flex; align-items: center; gap: 8px; color: var(--text-secondary); margin-bottom: 2rem; font-weight: 500; font-family: var(--font-display);">
+      <a href="javascript:history.back();"
+        style="display: inline-flex; align-items: center; gap: 8px; color: var(--text-secondary); margin-bottom: 2rem; font-weight: 500; font-family: var(--font-display);">
         <i class="fas fa-arrow-left"></i> 返回上一頁
       </a>
 
@@ -43,19 +46,19 @@
 
   <script src="assets/js/products.js"></script>
   <script src="assets/js/main.js"></script>
-  
+
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const urlParams = new URLSearchParams(window.location.search);
       const productId = parseInt(urlParams.get('id'));
-      
+
       const container = document.getElementById('detail-page-container');
       const relatedGrid = document.getElementById('related-products-grid');
       const relatedContainer = document.getElementById('related-container');
-      
+
       // 1. Find the target product
       const product = window.SolexaProducts.find(p => p.id === productId);
-      
+
       if (!product) {
         container.innerHTML = `
           <div style="text-align: center; padding: 5rem 0;">
@@ -68,10 +71,10 @@
         relatedContainer.style.display = 'none';
         return;
       }
-      
+
       // Set Document Title
       document.title = `${product.name} | SOLEXA 尊爵鞋鞋專賣店`;
-      
+
       // 2. Render details HTML
       container.innerHTML = `
         <a href="javascript:history.back();" style="display: inline-flex; align-items: center; gap: 8px; color: var(--text-secondary); margin-bottom: 2rem; font-weight: 500; font-family: var(--font-display);">
@@ -80,20 +83,20 @@
         <div class="detail-grid">
           <!-- Left: Image Gallery -->
           <div class="detail-gallery">
-            <img src="${product.image}" alt="${product.name}" class="detail-gallery-img">
+            <img src="${product.image}" alt="${product.name}" title="${product.name}" class="detail-gallery-img">
           </div>
           
           <!-- Right: Info Panel -->
           <div class="detail-info">
             <div class="detail-category-tags">
               ${product.category.map(c => {
-                let tagTxt = '休閒';
-                if (c === 'men') tagTxt = '男鞋';
-                else if (c === 'women') tagTxt = '女鞋';
-                else if (c === 'kids') tagTxt = '童鞋';
-                else if (c === 'sports') tagTxt = '運動機能';
-                return `<span>${tagTxt}</span>`;
-              }).join('<span style="color:var(--text-muted);">/</span>')}
+        let tagTxt = '休閒';
+        if (c === 'men') tagTxt = '男鞋';
+        else if (c === 'women') tagTxt = '女鞋';
+        else if (c === 'kids') tagTxt = '童鞋';
+        else if (c === 'sports') tagTxt = '運動機能';
+        return `<span>${tagTxt}</span>`;
+      }).join('<span style="color:var(--text-muted);">/</span>')}
             </div>
             
             <h1 class="detail-name">${product.name}</h1>
@@ -147,7 +150,7 @@
           </div>
         </div>
       `;
-      
+
       // 3. Size Select Handler
       let selectedSize = null;
       const sizeBtns = document.querySelectorAll('#size-options-grid .size-btn');
@@ -158,7 +161,7 @@
           selectedSize = parseInt(e.currentTarget.getAttribute('data-size'));
         });
       });
-      
+
       // 4. Add to Cart Handler
       const addToCartActionBtn = document.getElementById('add-to-cart-action-btn');
       if (addToCartActionBtn) {
@@ -171,12 +174,12 @@
           addToCart(product.id, selectedSize);
         });
       }
-      
+
       // 5. Render Related Products (same category, excluding current)
       const related = window.SolexaProducts
         .filter(p => p.id !== product.id && p.category.some(cat => product.category.includes(cat)))
         .slice(0, 4);
-        
+
       if (related.length === 0) {
         relatedContainer.style.display = 'none';
       } else {
@@ -184,23 +187,23 @@
           const card = document.createElement('a');
           card.href = `product-detail.html?id=${p.id}`;
           card.className = 'product-card';
-          
+
           let typeTag = '休閒';
           if (p.category.includes('sports')) typeTag = '機能';
-          
+
           card.innerHTML = `
             <span class="product-tag">${typeTag}</span>
             <div class="product-img-wrapper">
-              <img src="${p.image}" alt="${p.name}" class="product-img" loading="lazy">
+              <img src="${p.image}" alt="${p.name}" title="${p.name}" class="product-img" loading="lazy">
             </div>
             <div class="product-info">
               <span class="product-cat">${p.category.map(c => {
-                if (c === 'men') return '男鞋';
-                if (c === 'women') return '女鞋';
-                if (c === 'kids') return '童鞋';
-                if (c === 'sports') return '運動';
-                return '休閒';
-              }).join(' / ')}</span>
+            if (c === 'men') return '男鞋';
+            if (c === 'women') return '女鞋';
+            if (c === 'kids') return '童鞋';
+            if (c === 'sports') return '運動';
+            return '休閒';
+          }).join(' / ')}</span>
               <h3 class="product-name">${p.name}</h3>
               <div class="product-footer">
                 <span class="product-price">${p.price.toLocaleString()}</span>
@@ -214,4 +217,5 @@
     });
   </script>
 </body>
+
 </html>
