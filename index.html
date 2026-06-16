@@ -160,7 +160,7 @@
         card.innerHTML = `
           <span class="product-tag">${typeTag}</span>
           <div class="product-img-wrapper">
-            <img src="${p.image}" alt="${p.name}" class="product-img" loading="lazy">
+            <img src="${p.image}" alt="${p.name}" title="${p.name}" class="product-img" loading="lazy">
           </div>
           <div class="product-info">
             <span class="product-cat">${p.category.map(c => {
