@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>童鞋系列 | SOLEXA 尊爵鞋鞋專賣店</title>
+  <meta name="description" content="Solexa 舒適機能童鞋，守護寶貝成長。包含炫彩發光運動鞋、防滑恐龍雨鞋與戶外速乾涼鞋。讓孩子快樂奔跑。">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  
+  <header></header>
+
+  <main class="section" style="padding-top: 150px;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">KIDS COLLECTION</span>
+        <h1 class="section-title">童鞋系列</h1>
+        <p class="section-desc">活潑好動，安全第一。Solexa 兒童系列專為骨骼發育設計，貼心加強防撞鞋頭與避震大底，並結合魔鬼氈設計，守護孩子的探索時光。</p>
+      </div>
+
+      <div class="products-grid" id="kids-products-grid">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </main>
+
+  <footer></footer>
+
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('kids-products-grid');
+      const kidsProducts = window.SolexaProducts.filter(p => p.category.includes('kids'));
+      
+      kidsProducts.forEach(p => {
+        const card = document.createElement('a');
+        card.href = `product-detail.html?id=${p.id}`;
+        card.className = 'product-card';
+        
+        let typeTag = '休閒';
+        if (p.category.includes('sports')) typeTag = '機能';
+        
+        card.innerHTML = `
+          <span class="product-tag">${typeTag}</span>
+          <div class="product-img-wrapper">
+            <img src="${p.image}" alt="${p.name}" class="product-img" loading="lazy">
+          </div>
+          <div class="product-info">
+            <span class="product-cat">${p.category.map(c => {
+              if (c === 'kids') return '童鞋';
+              if (c === 'sports') return '運動';
+              return '休閒';
+            }).join(' / ')}</span>
+            <h3 class="product-name">${p.name}</h3>
+            <div class="product-footer">
+              <span class="product-price">${p.price.toLocaleString()}</span>
+              <span class="product-rating"><i class="fas fa-star"></i> ${p.rating}</span>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>男鞋系列 | SOLEXA 尊爵鞋鞋專賣店</title>
+  <meta name="description" content="Solexa 頂級男鞋系列，集結正裝牛津皮鞋、時尚休閒樂福鞋、越野避震運動鞋。專為現代男士打造舒適與時尚的完美結合。">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  
+  <header></header>
+
+  <main class="section" style="padding-top: 150px;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">MEN COLLECTION</span>
+        <h1 class="section-title">男鞋系列</h1>
+        <p class="section-desc">踏出穩健每一步。Solexa 專為男性設計，結合頂級皮革材質與新潮避震科技，在商務正裝與戶外運動間悠遊展現個人風範。</p>
+      </div>
+
+      <div class="products-grid" id="men-products-grid">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </main>
+
+  <footer></footer>
+
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('men-products-grid');
+      const menProducts = window.SolexaProducts.filter(p => p.category.includes('men'));
+      
+      menProducts.forEach(p => {
+        const card = document.createElement('a');
+        card.href = `product-detail.html?id=${p.id}`;
+        card.className = 'product-card';
+        
+        let typeTag = '休閒';
+        if (p.category.includes('sports')) typeTag = '機能';
+        
+        card.innerHTML = `
+          <span class="product-tag">${typeTag}</span>
+          <div class="product-img-wrapper">
+            <img src="${p.image}" alt="${p.name}" class="product-img" loading="lazy">
+          </div>
+          <div class="product-info">
+            <span class="product-cat">${p.category.map(c => {
+              if (c === 'men') return '男鞋';
+              if (c === 'sports') return '運動';
+              return '休閒';
+            }).join(' / ')}</span>
+            <h3 class="product-name">${p.name}</h3>
+            <div class="product-footer">
+              <span class="product-price">${p.price.toLocaleString()}</span>
+              <span class="product-rating"><i class="fas fa-star"></i> ${p.rating}</span>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    });
+  </script>
+</body>
+</html>

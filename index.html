@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>劉佳昀SideProject鞋子專賣店</title>
+  <meta name="description" content="這個網站為您提供最先進的運動慢跑鞋、經典手工皮鞋、機能童鞋與街頭休閒鞋款。">
+  <meta name="keywords" content="鞋子專賣店,男鞋,女鞋,童鞋,運動鞋,休閒鞋">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- Injected dynamically by main.js -->
+  <header></header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <span class="hero-tagline">2026 New Season Collection</span>
+        <h1>步履無界<br><span class="text-gradient">極致舒適</span></h1>
+        <p class="hero-desc">Solexa 融合前沿空氣動力學設計與環保科技布料，為追求生活質感的您，打造全天候、多場景的尊榮行走體驗。</p>
+        <div class="hero-btns">
+          <a href="sports.html" class="btn btn-primary">立即探索</a>
+          <a href="about.html" class="btn btn-secondary">品牌故事</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-circle"></div>
+        <!-- Featured Hero Shoe: AeroSprint (shoe1) -->
+        <img src="assets/images/products/shoe1.png" alt="Featured Running Shoe" class="hero-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="section" style="background: rgba(255, 255, 255, 0.01);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">SHOP BY CATEGORY</span>
+        <h2 class="section-title">熱門系列分類</h2>
+        <p class="section-desc">針對不同生活形態與穿著需求，提供最適切的機能與美學設計。</p>
+      </div>
+      <div class="cat-grid">
+        <!-- Men's Shoes Card -->
+        <div class="cat-card" onclick="window.location.href='men.html'">
+          <img src="assets/images/products/shoe2.png" alt="Men's Collection" class="cat-card-img"
+            style="object-position: center;">
+          <div class="cat-card-content">
+            <h3 class="cat-card-title">紳士品味</h3>
+            <span class="cat-card-link">男鞋系列 <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+        <!-- Women's Shoes Card -->
+        <div class="cat-card" onclick="window.location.href='women.html'">
+          <img src="assets/images/products/shoe5.png" alt="Women's Collection" class="cat-card-img"
+            style="object-position: center;">
+          <div class="cat-card-content">
+            <h3 class="cat-card-title">優雅風尚</h3>
+            <span class="cat-card-link">女鞋系列 <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+        <!-- Kids' Shoes Card -->
+        <div class="cat-card" onclick="window.location.href='kids.html'">
+          <img src="assets/images/products/shoe9.png" alt="Kids' Collection" class="cat-card-img"
+            style="object-position: center;">
+          <div class="cat-card-content">
+            <h3 class="cat-card-title">童趣機能</h3>
+            <span class="cat-card-link">童鞋系列 <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">TRENDING NOW</span>
+        <h2 class="section-title">本季主打推薦</h2>
+        <p class="section-desc">嚴選 Solexa 全系列最受喜愛與回購率最高之 8 款商品，邀您共同見證工藝傳奇。</p>
+      </div>
+
+      <div class="products-grid" id="featured-products-grid">
+        <!-- Rendered dynamically via JS -->
+      </div>
+
+      <div style="text-align: center; margin-top: 4rem;">
+        <a href="casual.html" class="btn btn-secondary" style="padding: 0.8rem 3rem;">查看全部商品</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Section -->
+  <section class="section"
+    style="background: rgba(255,255,255,0.01); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">THE SOLEXA ADVANTAGE</span>
+        <h2 class="section-title">為什麼選擇 Solexa？</h2>
+        <p class="section-desc">我們將鞋履研發視為嚴謹的科學與純粹的藝術，承諾給予顧客最頂級的穿著回饋。</p>
+      </div>
+      <div class="grid-features">
+        <div class="feature-box">
+          <i class="fas fa-microchip"></i>
+          <h4>智能避震科技</h4>
+          <p>獨家研發的高回彈發泡中底，精準吸收落地時衝擊力，隨時轉換為推進動能。</p>
+        </div>
+        <div class="feature-box">
+          <i class="fas fa-leaf"></i>
+          <h4>環保永續材質</h4>
+          <p>採用 100% 可回收針織布面與無毒染料，為守護美麗地球生態盡一份心力。</p>
+        </div>
+        <div class="feature-box">
+          <i class="fas fa-hand-sparkles"></i>
+          <h4>手工匠心細節</h4>
+          <p>皮鞋與皮夾系列均由資深鞋匠手工打磨及定型，細膩度與舒適感無與倫比。</p>
+        </div>
+        <div class="feature-box">
+          <i class="fas fa-shipping-fast"></i>
+          <h4>無憂尊榮售後</h4>
+          <p>提供免費快速配送、專業尺碼諮詢，與 7 天鑑賞期無條件退換貨服務。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Injected dynamically by main.js -->
+  <footer></footer>
+
+  <!-- Product Database -->
+  <script src="assets/js/products.js"></script>
+  <!-- Main Logic -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Dynamic featured products render -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('featured-products-grid');
+      // Render first 8 products as featured items
+      const featured = window.SolexaProducts.slice(0, 8);
+
+      featured.forEach(p => {
+        const card = document.createElement('a');
+        card.href = `product-detail.html?id=${p.id}`;
+        card.className = 'product-card';
+
+        let typeTag = '經典';
+        if (p.category.includes('sports')) typeTag = '機能';
+        else if (p.category.includes('casual')) typeTag = '休閒';
+
+        card.innerHTML = `
+          <span class="product-tag">${typeTag}</span>
+          <div class="product-img-wrapper">
+            <img src="${p.image}" alt="${p.name}" class="product-img" loading="lazy">
+          </div>
+          <div class="product-info">
+            <span class="product-cat">${p.category.map(c => {
+          if (c === 'men') return '男鞋';
+          if (c === 'women') return '女鞋';
+          if (c === 'kids') return '童鞋';
+          if (c === 'sports') return '運動';
+          return '休閒';
+        }).join(' / ')}</span>
+            <h3 class="product-name">${p.name}</h3>
+            <div class="product-footer">
+              <span class="product-price">${p.price.toLocaleString()}</span>
+              <span class="product-rating"><i class="fas fa-star"></i> ${p.rating}</span>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    });
+  </script>
+</body>
+
+</html>
