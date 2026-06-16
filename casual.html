@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,9 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
-  
+
   <header></header>
 
   <main class="section" style="padding-top: 150px;">
@@ -34,25 +36,25 @@
     document.addEventListener('DOMContentLoaded', () => {
       const grid = document.getElementById('casual-products-grid');
       const casualProducts = window.SolexaProducts.filter(p => p.category.includes('casual'));
-      
+
       casualProducts.forEach(p => {
         const card = document.createElement('a');
         card.href = `product-detail.html?id=${p.id}`;
         card.className = 'product-card';
-        
+
         card.innerHTML = `
           <span class="product-tag">休閒</span>
           <div class="product-img-wrapper">
-            <img src="${p.image}" alt="${p.name}" class="product-img" loading="lazy">
+            <img src="${p.image}" alt="${p.name}" title="${p.name}" class="product-img" loading="lazy">
           </div>
           <div class="product-info">
             <span class="product-cat">${p.category.map(c => {
-              if (c === 'men') return '男鞋';
-              if (c === 'women') return '女鞋';
-              if (c === 'kids') return '童鞋';
-              if (c === 'sports') return '運動';
-              return '休閒';
-            }).join(' / ')}</span>
+          if (c === 'men') return '男鞋';
+          if (c === 'women') return '女鞋';
+          if (c === 'kids') return '童鞋';
+          if (c === 'sports') return '運動';
+          return '休閒';
+        }).join(' / ')}</span>
             <h3 class="product-name">${p.name}</h3>
             <div class="product-footer">
               <span class="product-price">${p.price.toLocaleString()}</span>
@@ -65,4 +67,5 @@
     });
   </script>
 </body>
+
 </html>
